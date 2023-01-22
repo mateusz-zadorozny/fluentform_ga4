@@ -45,6 +45,15 @@
 			'form_id': formId
 		});
 
+		$('.fluentform').on('click', function (event) {
+			var target = event.target;
+			gtag('event', 'FormClicked', {
+				'event_category': 'FluentForms',
+				'event_label': 'Click Form',
+				'form_id': formId
+			});
+		});
+
 		$form.on('fluentform_submission_success', function () {
 
 			gtag('event', 'FormSubmission', {

@@ -8,7 +8,7 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Send ViewForm and FormSubmission events to Google Analytics 4
+Send ViewForm, FormClicked and FormSubmission events to Google Analytics 4
 
 == Description ==
 
