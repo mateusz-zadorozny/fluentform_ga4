@@ -29,37 +29,38 @@
 	 * practising this, we should strive to set a better example in our own work.
 	 */
 
-	if (typeof gtag != 'function') {
-		console.log("Google Analytics 4 not initialised")
-		return;
-	}
+	$(function () {
 
-	var fluentForms = $('form.frm-fluent-form');
-	fluentForms.each(function () {
-		var $form = $(this);
-		var formId = $form.attr('data-form_id');
+		var fluentForms = $('form.frm-fluent-form');
+		fluentForms.each(function () {
+			var $form = $(this);
+			var formId = $form.attr('data-form_id');
 
-		gtag('event', 'ViewForm', {
-			'event_category': 'FluentForms',
-			'event_label': 'View Form',
-			'form_id': formId
-		});
-
-		$('.fluentform').on('click', function (event) {
-			var target = event.target;
-			gtag('event', 'FormClicked', {
+			gtag('event', 'ViewForm', {
 				'event_category': 'FluentForms',
-				'event_label': 'Click Form',
+				'event_label': 'View Form',
 				'form_id': formId
 			});
-		});
 
-		$form.on('fluentform_submission_success', function () {
+			$('.fluentform').on('click', function (event) {
+				var target = event.target;
+				gtag('event', 'FormClicked', {
+					'event_category': 'FluentForms',
+					'event_label': 'Click Form',
+					'form_id': formId
+				});
+			});
 
-			gtag('event', 'FormSubmission', {
-				'event_category': 'FluentForms',
-				'event_label': 'Form Submitted',
-				'form_id': formId
+
+
+			$form.on('fluentform_submission_success', function () {
+
+				gtag('event', 'FormSubmission', {
+					'event_category': 'FluentForms',
+					'event_label': 'Form Submitted',
+					'form_id': formId
+				});
+
 			});
 
 		});
